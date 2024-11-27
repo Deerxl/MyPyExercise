@@ -12,3 +12,4 @@ data.plot(kind='scatter', x='Population', y='Profit', figsize=(12,8))
 plt.show()
 
 
+

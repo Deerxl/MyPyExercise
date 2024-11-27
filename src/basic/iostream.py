@@ -1,5 +1,7 @@
 import datetime
 import math
+import pickle
+import pprint
 
 s = 'hello, world'
 
@@ -40,3 +42,40 @@ f = open('source/test.txt', 'r')
 file_content = f.read()
 print(file_content)
 f.close()
+
+
+f = open('source/test.txt', 'r')
+string2 = f.readline(5)
+print(string2)
+
+string3 = f.readlines()
+print(string3)
+f.close()
+
+
+
+# pickle
+output_data = open('source/testdata.pkl', 'wb')
+data1 = {'a': [1, 2.0, 4+3.2j],
+         'b': ('string', u'Unicode text'),
+         'c':None}
+# Pickle dictionary using protocol 0.
+pickle.dump(data1, output_data)
+
+self_ref_list = [1, 2, 3]
+self_ref_list.append(self_ref_list)
+
+# Pickle the list using the highest protocol available.
+pickle.dump(self_ref_list, output_data, -1)
+
+output_data.close()
+
+
+pkl_file = open('source/testdata.pkl', 'rb')
+
+data1 = pickle.load(pkl_file)
+pprint.pprint(data1)
+
+data2 = pickle.load(pkl_file)
+pprint.pprint(data2)
+pkl_file.close()
