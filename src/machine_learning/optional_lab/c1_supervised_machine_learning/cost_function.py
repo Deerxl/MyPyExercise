@@ -1,11 +1,12 @@
 import numpy as np
 from matplotlib import pyplot as plt
-
+# %matplotlib widget
 from src.machine_learning.optional_lab.c1_supervised_machine_learning.lab_utils_uni import plt_intuition, \
     plt_stationary, plt_update_onclick, soup_bowl
+plt.style.use('./deeplearning.mplstyle')
 
-# x_train = np.array([1.0, 2.0])
-# y_train = np.array([300.0, 500.0])
+x_train = np.array([1.0, 2.0])
+y_train = np.array([300.0, 500.0])
 
 def computing_cost(x, y, w, b):
     m = x.shape[0]
@@ -20,14 +21,14 @@ def computing_cost(x, y, w, b):
 
 
 # Cost Function Intuition
-# plt_intuition(x_train, y_train)
+plt_intuition(x_train, y_train)
 
 # Larger Data Set
 
 x_train = np.array([1.0, 1.7, 2.0, 2.5, 3.0, 3.2])
 y_train = np.array([250, 300, 480, 430, 630, 730,])
 
-plt.ion()
+# plt.ion()
 
 plt.close('all')
 
