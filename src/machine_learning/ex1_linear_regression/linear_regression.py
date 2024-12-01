@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import pandas
 
 
-path =  'ex1data1.txt'
+path = 'ex1data1.txt'
 data = pandas.read_csv(path, header=None, names=['Population', 'Profit'])
 data.head()
 
