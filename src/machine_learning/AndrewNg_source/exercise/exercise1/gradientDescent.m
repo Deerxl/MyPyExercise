@@ -19,28 +19,9 @@ for iter = 1:num_iters
     
     %fprintf('theta_0 = %f...\n', theta(1));
     %fprintf('J = %f...\n', computeCost(X, y, theta));
-    
-    theta_0 = theta(1);
-    theta_1 = theta(2);
-    
-    sdiff_0 = 0;
-    sdiff_1 = 0;
-    for i = 1:m
-      h = 0;
-      for j = 1:length(theta)
-        h = h + (theta(j) * X(i, j));
-      end
-      sdiff_0 = sdiff_0 + ((h - y(i)))*X(i, 1);
-      sdiff_1 = sdiff_1 + ((h - y(i)))*X(i, 2);
-    end
-    
-    theta_0 = theta_0 - (alpha*(1/m)*sdiff_0);
-    theta_1 = theta_1 - (alpha*(1/m)*sdiff_1);
-    
-    theta(1) = theta_0;
-    theta(2) = theta_1;
-    
 
+    theta = theta - alpha * X' * (X * theta - y) / m;
+    
     % ============================================================
 
     % Save the cost J in every iteration    
